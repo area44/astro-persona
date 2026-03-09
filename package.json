@@ -1,14 +1,14 @@
 {
-  "name": "@torn4dom4n/website",
-  "version": "26.02.22",
+  "name": "@area44/astro-persona",
+  "version": "26.03.10",
   "private": true,
-  "description": "Long Nhat Nguyen's website",
+  "description": "This is a website which was built with Astro.",
   "repository": {
-    "url": "https://github.com/torn4dom4n/torn4dom4n.github.io"
+    "url": "https://github.com/area44/astro-persona"
   },
   "author": {
-    "name": "Long Nhat Nguyen",
-    "url": "https://torn4dom4n.github.io"
+    "name": "AREA44",
+    "url": "https://area44.github.io"
   },
   "scripts": {
     "build": "astro build",

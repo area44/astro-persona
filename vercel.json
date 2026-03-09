@@ -1,7 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "name": "@torn4dom4n/website",
   "framework": "astro",
   "buildCommand": "astro build",
   "outputDirectory": "dist",

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import Avatar from "@/assets/avatar.jpg";
+import Avatar from "@/assets/avatar.png";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 ---
 
@@ -9,12 +9,10 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
     <div class="relative flex items-center gap-x-4">
       <Image
         src={Avatar}
-        alt="My name is Long Nhat Nguyen"
+        alt="This is a website which was built with Astro"
         class="size-12 rounded-full"
       />
-      <p class="text-sm font-semibold leading-6 text-primary">
-        Long Nhat Nguyen
-      </p>
+      <p class="text-sm font-semibold leading-6 text-primary">Astro Persona</p>
     </div>
   </CardHeader>
   <CardContent>
@@ -24,11 +22,10 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
       Hello humans,
     </p>
     <p class="mt-4 text-sm font-light text-muted-foreground lg:text-xl">
-      My name is Long Nhat Nguyen. I'm only an individual who loves music,
-      photography, tech, and nature.
+      We are AREA44. We love music, photography, tech, and nature.
       <br />
       <br />
-      I'd like to make a positive impact in this world, no matter how small.
+      We would like to make a positive impact in this world, no matter how small.
     </p>
   </CardContent>
 </Card>

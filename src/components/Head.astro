@@ -3,7 +3,7 @@ import { Font } from "astro:assets";
 import "@/styles/global.css";
 
 import SEO from "@/components/SEO.astro";
-import { siteConfig } from "@/site.config";
+import { siteConfig } from "@/lib/site.config";
 
 export type Props = {
   title?: string;
@@ -38,7 +38,7 @@ const resolvedImage = {
 <meta name="theme-color" content={themeColor} />
 
 <!-- Low-Priority Metadata -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="mask-icon" href="/favicon.svg" color={themeColor} />
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 <link rel="shortcut icon" href="/favicon.ico" />

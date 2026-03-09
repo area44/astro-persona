@@ -7,7 +7,7 @@ import Icons from "unplugin-icons/vite";
 
 const site = process.env.VERCEL
   ? process.env.VERCEL_ENV === "production"
-    ? "https://persona.vercel.app"
+    ? "https://astro-persona.vercel.app"
     : `https://${process.env.VERCEL_URL}`
   : (process.env.SITE ?? "http://localhost:4321");
 const base = "/";

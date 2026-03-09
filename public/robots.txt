@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://area44.github.io/astro-persona/sitemap-index.xml
+Sitemap: https://astro-persona.vercel.app/sitemap-index.xml

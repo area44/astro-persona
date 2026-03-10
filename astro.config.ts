@@ -17,15 +17,13 @@ export default defineConfig({
   site,
   base,
   integrations: [react(), sitemap()],
-  experimental: {
-    fonts: [
-      {
-        provider: fontProviders.google(),
-        name: "Mona Sans",
-        cssVariable: "--font-mona-sans",
-      },
-    ],
-  },
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Mona Sans",
+      cssVariable: "--font-mona-sans",
+    },
+  ],
   vite: {
     plugins: [
       tailwindcss(),

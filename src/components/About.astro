@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Avatar from "@/assets/avatar.svg";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 ---
@@ -7,11 +6,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 <Card>
   <CardHeader>
     <div class="relative flex items-center gap-x-4">
-      <Image
-        src={Avatar}
-        alt="This is a website which was built with Astro"
-        class="size-12 rounded-full fill-black dark:fill-white"
-      />
+      <Avatar class="size-12 rounded-full text-black dark:text-white" />
       <p class="text-sm font-semibold leading-6 text-primary">Astro Persona</p>
     </div>
   </CardHeader>

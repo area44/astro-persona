@@ -2,24 +2,34 @@
 import "@/styles/global.css";
 
 interface Props {
+  name?: string;
   title?: string;
   description?: string;
-  ogImage?: string;
-  type?: "website" | "article";
+  image?: { src: string; alt: string };
+  twitter?: { handle: string };
+  og?: { type: "website" | "article" };
+  canonicalURL?: URL | string | null;
 }
 
 const {
+  name = "Astro Persona",
   title = "Default Site Title",
   description = "Default description for your website.",
-  ogImage,
-  type = "website",
+  image,
+  twitter,
+  og,
+  canonicalURL: propCanonicalURL,
 } = Astro.props as Props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
-const ogImageURL = ogImage
-  ? new URL(ogImage, Astro.site).toString()
-  : new URL("og-image.jpg", canonicalURL).toString();
-const faviconURL = new URL("favicon.svg", canonicalURL).toString();
+const canonicalURL = propCanonicalURL
+  ? propCanonicalURL.toString()
+  : new URL(Astro.url.pathname, Astro.site).toString();
+
+const ogImageURL = image?.src
+  ? new URL(image.src, Astro.site).toString()
+  : new URL("og-image.jpg", Astro.site).toString();
+
+const faviconURL = new URL("favicon.svg", Astro.site).toString();
 ---
 
 <!-- Basic -->
@@ -35,16 +45,20 @@ const faviconURL = new URL("favicon.svg", canonicalURL).toString();
 <!-- Title -->
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="author" content={name} />
 
 <!-- Open Graph -->
-<meta property="og:type" content={type} />
+<meta property="og:type" content={og?.type ?? "website"} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageURL} />
+{image?.alt && <meta property="og:image:alt" content={image.alt} />}
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageURL} />
+{twitter?.handle && <meta name="twitter:site" content={twitter.handle} />}
+{image?.alt && <meta name="twitter:image:alt" content={image.alt} />}

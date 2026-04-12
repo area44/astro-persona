@@ -52,7 +52,10 @@
     "allowBuilds": {
       "esbuild": true,
       "sharp": true
-    }
-  },
-  "packageManager": "pnpm@11.0.0-rc.0"
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  }
 }

@@ -1,6 +1,7 @@
 {
   "name": "@area44/astro-persona",
   "version": "26.03.10",
+  "packageManager": "pnpm@11.0.0-rc.0",
   "private": true,
   "description": "This is a website which was built with Astro.",
   "repository": {

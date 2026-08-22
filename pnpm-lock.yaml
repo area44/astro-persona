@@ -70,7 +70,7 @@ importers:
         specifier: ^0.9.10
         version: 0.9.10(prettier@3.9.6)(typescript@7.0.2)
       '@biomejs/biome':
-        specifier: ^2.5.9
+        specifier: ^2.5.10
         version: 2.5.10
       '@types/node':
         specifier: ^24.13.3

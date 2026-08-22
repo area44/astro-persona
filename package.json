@@ -20,16 +20,16 @@
     "check": "biome check --write"
   },
   "dependencies": {
-    "@astrojs/react": "^6.0.2",
+    "@astrojs/react": "^6.0.4",
     "@astrojs/sitemap": "^3.7.3",
     "@base-ui/react": "^1.7.0",
     "@iconify-json/simple-icons": "^1.2.93",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.2.2",
+    "astro": "^7.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
-    "lucide-react": "^1.31.0",
+    "lucide-react": "^1.33.0",
     "react": "^19.2.8",
     "react-day-picker": "10.0.1",
     "react-dom": "^19.2.8",
@@ -42,7 +42,7 @@
   "devDependencies": {
     "@area44/biome-config": "^2.3.4",
     "@astrojs/check": "^0.9.10",
-    "@biomejs/biome": "^2.5.8",
+    "@biomejs/biome": "^2.5.9",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",

@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio and persona website template built with [Astro](https://astro.build), [React](https://react.dev), and [Tailwind CSS v4](https://tailwindcss.com).
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Framework**: [Astro v7](https://astro.build)
 - **UI Library**: [React v19](https://react.dev)
@@ -11,7 +11,7 @@ A modern, responsive portfolio and persona website template built with [Astro](h
 - **Formatter & Linter**: [Biome](https://biomejs.dev)
 - **Package Manager**: [pnpm](https://pnpm.io)
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 .
@@ -29,7 +29,7 @@ A modern, responsive portfolio and persona website template built with [Astro](h
 └── package.json         # Project metadata and dependencies
 ```
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -55,7 +55,7 @@ pnpm run dev
 
 Open [http://localhost:4321](http://localhost:4321) in your browser to view the application.
 
-## 📜 Available Scripts
+## Available Scripts
 
 - `pnpm run dev`: Starts the local development server.
 - `pnpm run build`: Builds the static site for production into the `dist/` directory.
@@ -64,6 +64,6 @@ Open [http://localhost:4321](http://localhost:4321) in your browser to view the 
 - `pnpm run format`: Formats the codebase using Biome.
 - `pnpm run lint`: Lints the codebase using Biome.
 
-## 📄 License
+## License
 
 This project is licensed under the [MIT License](LICENSE).

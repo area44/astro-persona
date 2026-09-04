@@ -1,6 +1,6 @@
 {
   "name": "@area44/astro-persona",
-  "version": "26.03.10",
+  "version": "2026.0.0",
   "private": true,
   "description": "This is a website which was built with Astro.",
   "repository": {
@@ -10,6 +10,7 @@
     "name": "AREA44",
     "url": "https://area44.github.io"
   },
+  "packageManager": "pnpm@12.0.0",
   "scripts": {
     "build": "astro build",
     "dev": "astro dev",

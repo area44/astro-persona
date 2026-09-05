@@ -9,6 +9,7 @@ interface Props {
   twitter?: { handle: string };
   og?: { type: "website" | "article" };
   canonicalURL?: URL | string | null;
+  themeColor?: string;
 }
 
 const {
@@ -19,17 +20,30 @@ const {
   twitter,
   og,
   canonicalURL: propCanonicalURL,
+  themeColor = "#FFFFFF",
 } = Astro.props as Props;
+
+function resolveUrl(path: string | undefined, site: URL | undefined): string {
+  if (!path) return site ? site.toString() : "";
+  if (/^https?:\/\//i.test(path)) return path;
+  const base = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+  const baseUrl = site
+    ? new URL(base, site)
+    : new URL(base, "http://localhost:4321");
+  const cleanPath = path.replace(/^\//, "");
+  return new URL(cleanPath, baseUrl).toString();
+}
 
 const canonicalURL = propCanonicalURL
   ? propCanonicalURL.toString()
-  : new URL(Astro.url.pathname, Astro.site).toString();
+  : Astro.url.href;
 
-const ogImageURL = image?.src
-  ? new URL(image.src, Astro.site).toString()
-  : new URL("og-image.jpg", Astro.site).toString();
-
-const faviconURL = new URL("favicon.svg", Astro.site).toString();
+const ogImageURL = resolveUrl(image?.src ?? "og-image.jpg", Astro.site);
+const faviconSVG = resolveUrl("favicon.svg", Astro.site);
+const faviconICO = resolveUrl("favicon.ico", Astro.site);
+const sitemapURL = resolveUrl("sitemap-index.xml", Astro.site);
 ---
 
 <!-- Basic -->
@@ -37,10 +51,14 @@ const faviconURL = new URL("favicon.svg", Astro.site).toString();
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
 <meta name="robots" content="index, follow" />
+<meta name="theme-color" content={themeColor} />
 
-<!-- Canonical -->
+<!-- Canonical & Links -->
 <link rel="canonical" href={canonicalURL} />
-<link rel="icon" href={faviconURL} type="image/svg+xml" />
+<link rel="icon" href={faviconSVG} type="image/svg+xml" />
+<link rel="mask-icon" href={faviconSVG} color={themeColor} />
+<link rel="shortcut icon" href={faviconICO} />
+<link rel="sitemap" href={sitemapURL} />
 
 <!-- Title -->
 <title>{title}</title>

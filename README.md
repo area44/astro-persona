@@ -25,7 +25,7 @@ A modern, responsive portfolio and persona website template built with [Astro](h
 │   ├── pages/           # Astro page routes (index.astro, 404.astro)
 │   └── styles/          # Global styles (global.css with Tailwind CSS v4)
 ├── astro.config.ts      # Astro configuration file
-├── biome.jsonc          # Biome formatting and linting configuration
+├── biome.json           # Biome formatting and linting configuration
 └── package.json         # Project metadata and dependencies
 ```
 

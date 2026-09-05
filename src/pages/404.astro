@@ -1,10 +1,11 @@
 ---
 import { buttonVariants } from "@/components/ui/button";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { siteConfig } from "@/lib/site.config";
 ---
 
 <BaseLayout
-  title="404 | AREA44"
+  title={`404 | ${siteConfig.name}`}
   description="404 Error — this page was not found"
 >
   <div

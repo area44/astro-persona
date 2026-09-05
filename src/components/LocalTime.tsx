@@ -1,6 +1,24 @@
 import * as React from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { siteConfig } from "@/lib/site.config";
+
+const timeZone = siteConfig.timeZone || "UTC";
+
+const timeFormatter = new Intl.DateTimeFormat("en-US", {
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: false,
+  timeZone,
+});
+
+const dateFormatter = new Intl.DateTimeFormat("en-CA", {
+  timeZone,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
 
 const LocalTime: React.FC = () => {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
@@ -9,27 +27,16 @@ const LocalTime: React.FC = () => {
   React.useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const formattedTime = new Intl.DateTimeFormat("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-        timeZone: "Asia/Ho_Chi_Minh",
-      }).format(now);
-      setCurrentTime(formattedTime);
+      setCurrentTime(timeFormatter.format(now));
 
-      const vnTime = new Date(
-        new Intl.DateTimeFormat("en-CA", {
-          timeZone: "Asia/Ho_Chi_Minh",
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
-        }).format(now)
-      );
+      const localizedDate = new Date(dateFormatter.format(now));
 
       setDate((prevDate) => {
-        if (!prevDate || prevDate.toDateString() !== vnTime.toDateString()) {
-          return vnTime;
+        if (
+          !prevDate ||
+          prevDate.toDateString() !== localizedDate.toDateString()
+        ) {
+          return localizedDate;
         }
         return prevDate;
       });
@@ -50,7 +57,7 @@ const LocalTime: React.FC = () => {
 
       <CardContent className="p-1 flex flex-col items-center">
         <div className="flex justify-center items-center space-x-3 p-4 text-base w-full">
-          <p className="font-medium">Ha Noi, VN</p>
+          <p className="font-medium">{siteConfig.location}</p>
           <span className="relative flex size-2" aria-hidden="true">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground/80 opacity-75" />
             <span className="relative inline-flex size-2 rounded-full bg-foreground" />

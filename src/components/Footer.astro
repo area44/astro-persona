@@ -2,10 +2,11 @@
 const currentYear = new Date().getFullYear();
 
 import { Card, CardContent } from "@/components/ui/card";
+import { siteConfig } from "@/lib/site.config";
 ---
 
 <Card className="justify-end md:col-span-2 lg:col-span-4">
   <CardContent className="text-primary">
-    &copy; {currentYear} AREA44
+    &copy; {currentYear}&nbsp;{siteConfig.name}
   </CardContent>
 </Card>

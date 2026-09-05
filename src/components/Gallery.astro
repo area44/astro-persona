@@ -14,13 +14,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/gallery/*"
 );
 
-// Preload image metadata
-const loadedImages = await Promise.all(
-  Object.entries(images).map(async ([path, resolver]) => {
-    const { default: image } = await resolver();
-    return { path, image };
-  })
-);
+// Preload image metadata and sort deterministically
+const loadedImages = (
+  await Promise.all(
+    Object.entries(images).map(async ([path, resolver]) => {
+      const { default: image } = await resolver();
+      return { path, image };
+    })
+  )
+).sort((a, b) => a.path.localeCompare(b.path));
 
 // Helper: create alt text from filename
 const getAltFromPath = (path: string) => {

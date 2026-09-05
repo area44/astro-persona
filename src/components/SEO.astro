@@ -1,4 +1,5 @@
 ---
+import { resolveUrl } from "@/lib/seo";
 import "@/styles/global.css";
 
 interface Props {
@@ -22,19 +23,6 @@ const {
   canonicalURL: propCanonicalURL,
   themeColor = "#FFFFFF",
 } = Astro.props as Props;
-
-function resolveUrl(path: string | undefined, site: URL | undefined): string {
-  if (!path) return site ? site.toString() : "";
-  if (/^https?:\/\//i.test(path)) return path;
-  const base = import.meta.env.BASE_URL.endsWith("/")
-    ? import.meta.env.BASE_URL
-    : `${import.meta.env.BASE_URL}/`;
-  const baseUrl = site
-    ? new URL(base, site)
-    : new URL(base, "http://localhost:4321");
-  const cleanPath = path.replace(/^\//, "");
-  return new URL(cleanPath, baseUrl).toString();
-}
 
 const canonicalURL = propCanonicalURL
   ? propCanonicalURL.toString()

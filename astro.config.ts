@@ -4,13 +4,9 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 import Icons from "unplugin-icons/vite";
+import { getSiteAndBase } from "./src/lib/seo";
 
-const site = process.env.VERCEL
-  ? process.env.VERCEL_ENV === "production"
-    ? "https://astro-persona.vercel.app"
-    : `https://${process.env.VERCEL_URL}`
-  : (process.env.SITE ?? "http://localhost:4321");
-const base = process.env.BASE || "/";
+const { site, base } = getSiteAndBase();
 
 // https://astro.build/config
 export default defineConfig({

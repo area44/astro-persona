@@ -18,7 +18,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       Sorry, we couldn't find the page you're looking for.
     </p>
     <a
-      href="/"
+      href={import.meta.env.BASE_URL}
       rel="noreferrer"
       class={buttonVariants()}
       aria-label="Go back to homepage"
